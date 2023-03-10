@@ -72,7 +72,7 @@ export default function Home() {
           <Col className="col-md-1 col-12" />
         </Row>
         <Row>
-          <Col className="col-12 mt-5">
+          <Col className="col-12 mt-5 mb-5">
             <Button
               className="startBtn"
               onClick={() => {
