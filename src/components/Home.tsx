@@ -18,7 +18,7 @@ export default function Home() {
   );
 
   useEffect(() => {
-    setCalories(goldFishCounter * 3);
+    setCalories(Math.floor(goldFishCounter * 2.4));
   }, [goldFishCounter]);
 
   // save the goldfish counter and calorie to local storage
