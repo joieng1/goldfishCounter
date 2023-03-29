@@ -16,6 +16,11 @@ export default function Home() {
       ? parseInt(localStorage.getItem("calories") as string)
       : 0
   );
+  const [customCount, setCustomCount] = useState(
+    localStorage.getItem("customCount")
+      ? parseInt(localStorage.getItem("customCount") as string)
+      : 0
+  );
 
   useEffect(() => {
     setCalories(Math.floor(goldFishCounter * 2.54));
@@ -25,7 +30,8 @@ export default function Home() {
   useEffect(() => {
     localStorage.setItem("goldFishCounter", JSON.stringify(goldFishCounter));
     localStorage.setItem("calories", JSON.stringify(calories));
-  }, [goldFishCounter, calories]);
+    localStorage.setItem("customCount", JSON.stringify(customCount));
+  }, [goldFishCounter, calories, customCount]);
 
   return (
     <div>
@@ -38,7 +44,6 @@ export default function Home() {
           </Col>
         </Row>
         <Row className="mt-2">
-          <Col className="col-md-1 col-12" />
           <Col className="col-md-3 col-12 mt-md-5 mt-0">
             <Button
               className="clickBtn"
@@ -49,7 +54,7 @@ export default function Home() {
               x1
             </Button>
           </Col>
-          <Col className="col-md-4 col-12 mt-md-5 mt-3">
+          <Col className="col-md-3 col-12 mt-md-5 mt-3">
             <Button
               className="clickBtn"
               onClick={() => {
@@ -69,7 +74,36 @@ export default function Home() {
               x3
             </Button>
           </Col>
-          <Col className="col-md-1 col-12" />
+          <Col className="col-md-3 col-12 mt-md-5 mt-3">
+            <Button
+              className="clickBtn"
+              onClick={() => {
+                setGoldFishCounter(goldFishCounter + customCount);
+              }}
+            >
+              x{customCount}
+            </Button>
+          </Col>
+          {/* <Col className="col-md-1 col-12" /> */}
+        </Row>
+        <Row>
+          <Col className="col-12 mt-5" />
+          {/* Textfield which sets customCount using button */}
+          <Col className="col-12 mt-3">
+            <h2>Custom Count</h2>
+            <input
+              type="number"
+              className="customCountSelector"
+              value={customCount}
+              onChange={(e) => {
+                if (!Number.isNaN(parseInt(e.target.value))) {
+                  setCustomCount(parseInt(e.target.value));
+                } else {
+                  setCustomCount(0);
+                }
+              }}
+            />
+          </Col>
         </Row>
         <Row>
           <Col className="col-12 mt-5 mb-5">

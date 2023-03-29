@@ -43,6 +43,24 @@ body::-webkit-scrollbar {
   background-color: #16192c;
 }
 
+.customCountSelector {
+  text-align: center;
+  margin: 0px 10px;
+  font-size: 2rem;
+  border-radius: 40px;
+  background-color: #9fb7b9;
+  border: none;
+}
+/* Removes number input buttons */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 @media screen and (max-width: 400px) {
   .startTitle {
     font-size: 3.5rem;
@@ -57,6 +75,7 @@ body::-webkit-scrollbar {
     font-size: 2rem;
   }
 }
+
 @media screen and (max-width: 1000px) {
   .startTitle {
     font-size: 6.5rem;
